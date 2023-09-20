@@ -43,6 +43,7 @@ function submit() {
 
     if(validateFormData(handleGetFormData()) == true){
         warnings.innerText = 'Pesan anda diterima'
+        console.log(handleGetFormData())
     }else{
         warnings.innerText = 'Periksa form anda sekali lagi'
     }
