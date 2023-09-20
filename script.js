@@ -1,15 +1,9 @@
-// const header = document.querySelector("header");
-
-// window.addEventListener("scroll", function () {
-//     header.classList.toggle("sticky", window.scrollY > 0);
-// });
-
 function handleGetFormData() {
     const name = document.getElementById('name').value
     const email = document.getElementById('email').value
     const city = document.getElementById('city').value
     const zipCode = document.getElementById('zip-code').value
-    const status = document.getElementById('status').value
+    const status = document.getElementById('status').checked
     const data = {
         name: name,
         email: email,
@@ -24,8 +18,6 @@ function isNumber(angka) {
     return !isNaN(angka)
 }
 
-// const angka = 9
-// console.log(isNumber(angka))
 function checkboxIsChecked() {
     return document.getElementById('status').checked
 }
@@ -39,13 +31,13 @@ function validateFormData(data) {
 }
 
 function submit() {
-    const warnings = document.getElementById('warning');
+    const data = handleGetFormData()
+    const validasi = validateFormData(data)
 
-    if(validateFormData(handleGetFormData()) == true){
-        warnings.innerText = 'Pesan anda diterima'
-        console.log(handleGetFormData())
+    if(validasi == false){
+        document.getElementById('warning').textContent  = 'Periksa form anda sekali lagi'
     }else{
-        warnings.innerText = 'Periksa form anda sekali lagi'
+        document.getElementById('warning').textContent  = ''
     }
 }
 
